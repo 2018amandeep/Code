@@ -38,3 +38,48 @@ var twoSum = function(nums, target) {
         }
     }
 };
+
+
+217. Contains Duplicate
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Sol:
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+    // let appear= {};
+    // for(let i=0;i<nums.length;i++){
+    //     let n = nums[i];
+    //     if(appear[n] !== undefined){
+    //         return true;
+    //     }else {
+    //         appear[n] =nums[i];
+    //     }
+    // }
+    // return false;
+
+    // let dup =0;
+    // nums.sort();
+
+    // for(let i=0;i<nums.length;i++){
+    //     if(nums[i] === nums[i+1]){
+    //         dup++;
+    //     }
+    // }
+
+    // return dup !=0;
+
+    // using hash map
+
+    let map = new Map()
+    for (let num of nums){
+        if(map.has(num)){
+            return true;
+        }else{
+            map.set(num,true);
+        }
+    }
+    return false;
+};
