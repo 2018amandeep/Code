@@ -106,3 +106,9 @@ var containsNearbyDuplicate = function (nums, k) {
     }
     return false;
 };
+
+
+For node only:
+
+process.stdout.write("hello")
+process.stdout.write("world") // hello world both will give output in one line
