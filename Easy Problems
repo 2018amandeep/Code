@@ -112,3 +112,20 @@ For node only:
 
 process.stdout.write("hello")
 process.stdout.write("world") // hello world both will give output in one line
+
+
+Pattern programming:
+
+1.  *
+    **
+    ***
+    ****
+    *****
+
+Sol:
+ for(let i =1;i<=5;i++){
+    for(let j=1;j<=i;j++){
+        process.stdout.write('*');
+    }
+    console.log()
+}
