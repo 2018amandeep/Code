@@ -143,3 +143,19 @@ for(let i =1;i<=5;i++){
     console.log()
 }
 
+3.  A
+    AB
+    ABC
+    ABCD
+    ABCDE
+
+sol: 
+for(let i =1;i<=5;i++){
+    let ascii = 65;  // Ascii value of A is 65
+    for(let j=1;j<=i;j++){
+        process.stdout.write(String.fromCharCode(ascii));
+        ascii++;
+    }
+    console.log()
+}
+
