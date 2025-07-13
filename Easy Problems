@@ -172,3 +172,16 @@ for(let i =1;i<=5;i++){
 console.log('a'.charCodeAt(0))
 console.log(String.fromCharCode(97))
 
+
+4.  *****
+    ****
+    ***
+    **
+    *
+Sol:
+for(let i=5;i>=1;i--){
+    for(let j=1;j<=i;j++){
+        process.stdout.write('*')
+    }
+    console.log()
+}
