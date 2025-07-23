@@ -327,3 +327,30 @@ for(let i = arr.length-1;i>0;i--){
 arr[0]= copy
 
 console.log("Moved arr is:", arr)
+
+
+Q. reverse array for k times.
+Sol: /**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    k = k% nums.length;
+
+    // reverse(0, nums.length-1, nums)
+    nums.reverse()
+
+    reverse(0, k-1, nums)
+    reverse(k,nums.length-1, nums)
+};
+
+const reverse = function(start, end,arr){
+    while(start< end){
+        let temp= arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
