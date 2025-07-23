@@ -354,3 +354,9 @@ const reverse = function(start, end,arr){
         end--;
     }
 }
+
+
+More solution:
+left rotation :  arr[i]= arr[(i+k)%arr.length]
+
+right rotation: arr[(i+k)% arr.length] = arr[i]
