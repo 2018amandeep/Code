@@ -398,6 +398,8 @@ Output: 6
 Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 
 Sol:
+
+USING KENDEY'S ALGORITHM
 var maxSubArray = function(nums) {
     let i=0;
     let max= nums[0];
