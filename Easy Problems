@@ -492,4 +492,19 @@ Sol:var trap = function(height) {
     return sum;
 };
 
+Q: Count characters.
+const message = 'Hello world'; // Try edit me
+let charCount = {};
+
+for (let i = 0; i < message.length; i++) {
+  console.log(message[i]);
+ 
+  if (charCount[message[i]]) {
+    charCount[message[i]] = charCount[message[i]] + 1;
+  } else {
+    charCount[message[i]] = 1;
+    
+  }
+}
+
 
