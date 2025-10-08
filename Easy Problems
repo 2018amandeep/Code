@@ -507,4 +507,26 @@ for (let i = 0; i < message.length; i++) {
   }
 }
 
+Q: Bubble Sort.
+Sol:
 
+let arr = [10,5,1,12,3];
+
+for(let i=0;i<arr.length-1;i++){
+    // console.log(i,"i")
+    let bubble = arr[0];
+    console.log(bubble)
+    for(let j=0;j<arr.length;j++){
+        // console.log(j,"j")
+        if(bubble > arr[j+1]){
+            let temp = arr[j];
+            arr[j] =arr[j+1]
+            arr[j+1] = temp;
+        }else{
+            bubble = arr[j+1];
+        }
+    }
+    console.log(arr,"arr after loop", i)
+}
+
+console.log(arr)
