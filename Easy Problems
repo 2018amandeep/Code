@@ -530,3 +530,27 @@ for(let i=0;i<arr.length-1;i++){
 }
 
 console.log(arr)
+
+
+Q: Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+Sol:
+ var reverse = function(x) {
+    let y= Math.abs(x);
+    let n = y.toString().length;
+    let mod = '';
+    const INT_MAX = 2 ** 31 - 1;
+    const INT_MIN = -(2 ** 31);
+     // Before appending the digit, check overflow:
+  
+
+      for(let i= 0;i<n;i++){
+        mod+= parseInt(y%10);
+        y = y/10;
+      }  
+      if (parseInt(mod) > INT_MAX || parseInt(mod) < INT_MIN) return 0;
+      if(x < 0) mod = -(mod);
+
+
+  return +(mod)
+};
