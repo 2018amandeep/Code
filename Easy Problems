@@ -604,3 +604,6 @@ for(let i=1;i<n;i++){
     arr[j+1]= key;
 }
 
+
+Youtube link to deploye on AWS EC2: https://www.youtube.com/watch?v=nQdyiK7-VlQ
+
