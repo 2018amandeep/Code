@@ -574,3 +574,33 @@ for(let i=0;i< n-1;i++){
     arr[i] = arr[min];
     arr[min] = temp;
 }
+
+Q: Insertion sort.
+Sol:
+Insertion sort is a simple sorting algorithm that works much like how you might sort playing cards in your hand.​
+How Insertion Sort Works (Layman Description)
+Think of your array as having two parts: a sorted part (on the left) and an unsorted part (on the right).
+At first, the sorted part has just the first item. The rest is unsorted.
+Take the next item from the unsorted part and insert it into the right position in the sorted part by comparing and shifting bigger elements one space to the right as needed.
+Repeat this for each item until the entire list is sorted.​
+Step-by-Step Example (Visualized)
+Suppose you want to sort: [14][33][27][10][35][19][42][44]
+Start with 14 as the sorted part.
+Take 33: it's bigger than 14, so no changes needed. Sorted =
+Now 27: compare with 33 (it's smaller), so move 33 right. Compare with 14 (it's bigger), so put 27 after 14. Now Sorted =
+Continue this process for the rest.
+let arr = [10,9,5,12,1]
+let n = arr.length;
+
+
+for(let i=1;i<n;i++){
+    let key = arr[i];
+    let j = i-1;
+    
+    while(j>=0 && arr[j]> key){
+        arr[j+1] = arr[j];
+        j--
+    }
+    arr[j+1]= key;
+}
+
