@@ -13,3 +13,11 @@ where e1.mgr = e2.mgr and e1.sal> e2.sal
 3. Select first and last employee.
 Sol: select * from (select rownum r, name, class from employee)
 where r =1 or r = (select count(*) from employee)
+
+4. Show last two rows.
+Sol: Select * from employee
+minus
+select * from employee where rownum <= (select count(*)-2 from employee)
+OR
+select * from (select rownum  r, name, email from employee)
+where r > (select count(*) -2 from employee)
