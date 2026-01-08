@@ -21,3 +21,14 @@ select * from employee where rownum <= (select count(*)-2 from employee)
 OR
 select * from (select rownum  r, name, email from employee)
 where r > (select count(*) -2 from employee)
+
+5. Nth heighest salary.
+Sol: Select * from (select distinct sal from salary order by sal desc)
+where rownum <=3;
+minus
+select * from ( select distinct sal from salary order by sal desc)
+where rownum <=2;
+OR
+select salary from (select
+  salary, DENSE_RANK() OVER (ORDER BY SALARY DESC) as rnk from employee) ranked
+where rnk = n
