@@ -18,3 +18,31 @@ Result:
  1. Undefined : Initially when the state is pending
  2. Value : When the promise is resolved
  3. Error : WHen the promise is rejected
+
+Let promise2 = new Promise(function(resolve, reject)=>{
+    resolve("The promise has been resolved")
+    reject("The promise has been rejected") // ignored
+
+    resolve("The promise has been reolved again") // ignored
+})
+Output: The promise has been rejected . (The promsise executes once ange ignores others)
+
+// promise handler
+const pr = new Promise(function(resolve, reject) {
+    // resolve("I am resolved")
+    reject("I am reject")
+})
+
+// then
+pr.then((result)=>{console.log(result)},
+(err)=> {console.log(err)}
+)
+
+//catch
+pr.catch(err=> console.log(err))
+
+//When you have to close timers, change states, or sideEffect type of things\
+
+pr.finally(()=>{
+    clearInterval(timerId)
+})
