@@ -48,12 +48,15 @@ pr.finally(()=>{
 })
 
 
-//Promise Chain
+//Promise Chain : Output of first .then() handler can be input of next .then() or .catch() handler then only it is promise chaining
 
 There are three rules of promise:
 1. Every promise gives a .then() handler method. Every rejected promise gives a .catch() method, If a promise is fullfilled it wont give .catch().
 2. You can mainly do three things form .then() method. Either return another promise, return a variable for synchoronous operation, You can throw an error. 
 3. You can rethrow the error from the catch handler to handle the error later. In this case the control will go to the next closest catch handler.
+4. Unlike .then() and .catch() the .finally() handlr doesn't process the error or result. It just passes the result to the next handler.
+5. Calling the .then() handler multiple times on a single promise is not promise chaining.
+
 
 const newPromise = new Promise((resolve, reject)=> {
       const obj = {
@@ -75,6 +78,21 @@ newPromise
 .then(res=>{
     console.log(res)
 })
+
+Rule 4:
+const resolveFinallyPromise = new Promise((resolve, reject)=> {
+    resolve("resolved finally")
+});
+
+resolveFinallyPromise
+.finally(()=> { // doestn't takes any paramerter just pass the value safely to next handler
+    console.log("Moving ahead")
+})
+.then((res)=>{
+    console.log(res)
+})
+Output: Moving ahead
+resolved finally
 
 // function returning a value
 
@@ -98,6 +116,22 @@ newPromise
     console.log(res)
 })
 .catch((err)=>{
+    console.log(err)
+})
+
+Rule 5:
+Example of not chaining 
+newPromise
+.then((res)=>{
+    if(!res.permissions.includes('hr')){
+        throw new Error("You are not authorized for using it")
+    }
+ return `name is ${res.name}`
+})
+newPromise.then(res=>{
+    console.log(res)
+})
+newPromise.catch((err)=>{
     console.log(err)
 })
 
