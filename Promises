@@ -53,7 +53,7 @@ pr.finally(()=>{
 There are three rules of promise:
 1. Every promise gives a .then() handler method. Every rejected promise gives a .catch() method, If a promise is fullfilled it wont give .catch().
 2. You can mainly do three things form .then() method. Either return another promise, return a variable for synchoronous operation, You can throw an error. 
-3. You can rethrow the error from the catch handler to handle the error later.
+3. You can rethrow the error from the catch handler to handle the error later. In this case the control will go to the next closest catch handler.
 
 const newPromise = new Promise((resolve, reject)=> {
       const obj = {
@@ -100,4 +100,6 @@ newPromise
 .catch((err)=>{
     console.log(err)
 })
+
+
 
