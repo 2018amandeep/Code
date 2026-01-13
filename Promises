@@ -46,3 +46,58 @@ pr.catch(err=> console.log(err))
 pr.finally(()=>{
     clearInterval(timerId)
 })
+
+
+//Promise Chain
+
+There are three rules of promise:
+1. Every promise gives a .then() handler method. Every rejected promise gives a .catch() method, If a promise is fullfilled it wont give .catch().
+2. You can mainly do three things form .then() method. Either return another promise, return a variable for synchoronous operation, You can throw an error. 
+3. You can rethrow the error from the catch handler to handle the error later.
+
+const newPromise = new Promise((resolve, reject)=> {
+      const obj = {
+            name:"Amandeep",
+            email:"amandeep.p.2015@gmail.com"
+        }
+        resolve(obj);
+})
+
+// funciton returning a function
+newPromise
+.then((res)=>{
+ return new Promise((resolve, reject)=>{
+     setTimeout(()=>{
+         resolve("Tiger gone");
+     }, 2000)
+ })
+})
+.then(res=>{
+    console.log(res)
+})
+
+// function returning a value
+
+newPromise
+.then((res)=>{
+ return `name is ${res.name}`
+})
+.then(res=>{
+    console.log(res)
+})
+
+// throw the error
+newPromise
+.then((res)=>{
+    if(!res.permissions.includes('hr')){
+        throw new Error("You are not authorized for using it")
+    }
+ return `name is ${res.name}`
+})
+.then(res=>{
+    console.log(res)
+})
+.catch((err)=>{
+    console.log(err)
+})
+
