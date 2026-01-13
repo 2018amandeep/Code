@@ -1,0 +1,10 @@
+new Promise(function(resolve, reject){
+    //resolve
+    //reject
+})
+
+// This function is called as Executor function
+function(resolve, reject){
+    //resolve
+    //reject
+}
