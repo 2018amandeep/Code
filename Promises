@@ -1,4 +1,4 @@
-new Promise(function(resolve, reject){
+let promise = new Promise(function(resolve, reject){
     //resolve
     //reject
 })
@@ -8,3 +8,13 @@ function(resolve, reject){
     //resolve
     //reject
 }
+
+//States
+1. Pending- When the executor function has started the execution
+2. Resolve - When the promise is resolved
+3. Reject - When the promise id reject
+
+Result: 
+ 1. Undefined : Initially when the state is pending
+ 2. Value : When the promise is resolved
+ 3. Error : WHen the promise is rejected
